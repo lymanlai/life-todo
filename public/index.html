@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html ng-app="lifeTodo">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>生命清单</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/icon.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="lib/semantic.min.js"></script>
+    <script src="core.js"></script>
+
+</head>
+<body ng-controller="mainController">
+<div class="ui three column centered grid">
+    <div class="column">
+        <h1 class="ui header centered">
+          Life ToDo List <span class="ui teal label">{{ todos.length }}</span>
+        </h1>
+
+        <form class="ui form" ng-submit="createToDo()">
+            <div class="ui action left icon input">
+                <input type="text" name="first-name" placeholder="我想做的事" ng-model="formData.text">
+                <div class="ui teal button" ng-click="createToDo()">添加</div>
+            </div>
+        </form>
+
+        <div class="ui vertical menu">
+            <div class="header item">
+                <i class="user icon"></i>
+                Type or Category Here
+            </div>
+            <a class="teal item" ng-repeat="todo in todos">
+                <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+                <div class="ui teal label">1</div>
+            </a>
+
+            <a class="item active">
+                Trash
+                <div class="ui label">1</div>
+            </a>
+        </div>
+
+        <div class="ui blue segment">
+          <p></p>
+          <div class="ui orange segment">
+            <p></p>
+            <div class="ui green segment">
+              <p></p>
+              <div class="ui red segment">
+                <p></p>
+                <div class="ui purple segment">
+                  <p></p>
+                  <div class="ui teal segment">
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+
